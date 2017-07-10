@@ -1,0 +1,88 @@
+.wrap .container
+{
+    position: relative;
+}
+.wrap .container .central_block_wrap
+{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 1%;
+}
+.wrap .container .central_block_wrap .gallery_photo_list
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.container .central_block_wrap .gallery_photo_list::after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+.central_block_wrap .gallery_photo_list .gallery_photo
+{
+    display: flex;
+    justify-content: center;
+    flex-basis: 32.8%;
+    /*height: 33%;*/
+    margin: 0.1%;
+    border: 1px solid black;
+    background: black;
+}
+.central_block_wrap .gallery_photo_list .gallery_photo:hover
+{
+    cursor: pointer;
+}
+
+.central_block_wrap .gallery_photo_list .gallery_photo > div
+{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.central_block_wrap .gallery_photo_list .gallery_photo img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+.central_block_wrap .more_photos {
+    position: absolute;
+    height: 8vh;
+    width: 7vh;
+    right: 5vh;
+    bottom: 5vh;
+    color: white;
+    font-size: 8vh;
+    cursor: pointer;
+}
+.central_block_wrap .more_photos:hover {
+    font-size: 9vh;
+}
+
+/*    Фикс модалки    */
+.modal_photo_content .modal_photo_comments .photo_comments
+{
+    height: 72%;
+}
+.modal_photo_content .modal_photo_comments .photo_input_comment
+{
+    height: 10%;
+}
+.modal_photo_content .modal_photo_comments .photo_input_comment textarea
+{
+    height: 100%;
+    width: 100%;
+    padding: 1%;
+    margin: 0;
+    outline: none;
+    resize: none;
+}

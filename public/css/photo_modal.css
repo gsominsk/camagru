@@ -1,0 +1,213 @@
+.modal_photo_wrap
+{
+    display: none;
+	justify-content: center;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    /*background-color: rgba(128, 128, 128, 0.5);*/
+    z-index: 5;
+	overflow: hidden;
+}
+/* Слайдер */
+.modal_photo_wrap .modal_photo_content
+{
+	position: fixed;
+    height: 85%;
+    max-width:1050px;
+    margin: 0 auto;
+    margin-top: 5%;
+    transform: translateY(-110%);
+    transition: 0.5s;
+    background: white;
+    opacity: 1;
+}
+.modal_photo_wrap .modal_photo_content .modal_photo
+{
+	display: flex;
+    float: left;
+	align-items: center;
+	justify-content: center;
+    width: 60%;
+    height: 100%;
+    background: black;
+}
+.modal_photo_content .modal_photo .owner_photo_wrap
+{
+	position: relative;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+}
+.modal_photo_content .modal_photo .owner_photo_wrap img
+{
+    max-width: 100%;
+	max-height: 100%;
+}
+.modal_photo_content .modal_photo .next_photo,
+.modal_photo_content .modal_photo .previous_photo
+{
+    position: absolute;
+    top: 0%;
+    vertical-align: middle;
+    color: white;
+    font-size: 7vh;
+    font-family: sans-serif;
+    font-weight: 900;
+    opacity: 0.3;
+}
+.modal_photo_content .modal_photo .next_photo
+{
+    right: 0;
+    padding: 0 5% 0 37%;
+}
+.modal_photo_content .modal_photo .previous_photo
+{
+    left: 0;
+    padding: 0 37% 0 5%;
+}
+.modal_photo_content .modal_photo .next_photo:hover,
+.modal_photo_content .modal_photo .previous_photo:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+/* Коментарии */
+.modal_photo_wrap .modal_photo_content .modal_photo_comments
+{
+    float: left;
+    height: 100%;
+    width: 40%;
+}
+/* -- Коментарии - твой профиль */
+.modal_photo_content .modal_photo_comments .photo_owner
+{
+    position: relative;
+    height: 10%;
+    background: white;
+    border-bottom: 1px solid #e7e8ec;
+}
+.modal_photo_content .modal_photo_comments .photo_owner_img
+{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 3%;
+    top: 15%;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.modal_photo_content .modal_photo_comments .photo_owner_img img
+{
+    height: 100%;
+}
+.modal_photo_content .modal_photo_comments .photo_creation_time,
+.modal_photo_content .modal_photo_comments .photo_owner_name
+{
+    padding: 0% 20% 0% 9vh;
+    font-size: 2vh;
+    font-family: sans-serif;
+    line-height: 5vh;
+    overflow: hidden;
+}
+.modal_photo_content .modal_photo_comments .photo_creation_time
+{
+    font-size: 1.3vw !important;
+	line-height: 2vh;
+	word-wrap: normal;
+	color: darkgrey;
+}
+.modal_photo_content .modal_photo_comments .photo_owner_likes
+{
+    position: absolute;
+    top: 0;
+    right: 5%;
+    height: 100%;
+    padding: 3.2vh 0vh;
+    font-family: sans-serif;
+    font-size: 2.4vh;
+    color: grey;
+}
+.modal_photo_content .modal_photo_comments .photo_owner_likes:hover
+{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.modal_photo_content .modal_photo_comments .photo_owner_likes img{height: 100%;}
+
+/* -- Коментарии - общие коментарии */
+.photo_comments
+{
+    height: 82%;
+    border-bottom: 1px solid #e7e8ec;
+    overflow-y: auto;
+}
+.photo_comments .modal_comentators_list
+{
+    height: 100%;
+    padding: 3%;
+    margin: 0;
+    list-style: none;
+}
+.modal_comentators_list .comentator
+{
+    min-height: 10%;
+    margin-bottom: 2%;
+    background-color: white;
+    border-bottom: 1px solid #e7e8ec;
+}
+.modal_comentators_list .comentator .comment_creation_time,
+.modal_comentators_list .comentator .comentator_name
+{
+    position: relative;
+    padding-left: 8vh;
+    font-size: 2vh;
+    font-family: sans-serif;
+    line-height: 3vh;
+}
+.modal_comentators_list .comentator .comment_creation_time
+{
+    line-height: 2vh;
+    color: darkgrey;
+    font-size: 1.5vh;
+}
+
+.comentator .comentator_name .comentator_img_wrap
+{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.comentator .comentator_name .comentator_img_wrap img
+{
+    height: 100%;
+}
+.modal_comentators_list .comentator .comentator_text
+{
+    width: 100%;
+    padding: 0 2% 2% 8vh;
+    word-wrap: break-word;
+    font-size: 2vh;
+    font-family: sans-serif;
+    text-align: justify;
+	border: none;
+	outline: none;
+	resize: none;
+}
+/* -- Коментарии - нижние кнопки */
+.modal_photo_bottom
+{
+    height: 8%;
+    padding: 1%;
+}

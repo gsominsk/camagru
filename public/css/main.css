@@ -1,0 +1,53 @@
+html, body, div, textarea{box-sizing: border-box;}
+.container{position: relative;}
+html, body, .wrap, .container
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+/* Настройка скрулбара на странице */
+::-webkit-scrollbar{
+    width:0.2em;
+}
+::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+::-webkit-scrollbar-track{
+    border-width:0;
+}
+.btn
+{
+    float: right;
+    height: 100%;
+    padding: 0 5%;
+    color: #00bcd4;
+    font-family: sans-serif;
+    font-size: 2.7vh;
+    text-decoration: none;
+    line-height: 5.5vh;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+.btn:hover
+{
+    cursor: pointer;
+    background: #00bcd4;
+    color: white;
+}
+.btn:active
+{
+    transition: 0.2s;
+    background: #4dd0e1;
+}

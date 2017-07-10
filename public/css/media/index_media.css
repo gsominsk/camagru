@@ -1,0 +1,47 @@
+@media only screen and (max-width : 500px) {
+	/* Центральная часть */
+	.view_camera
+	{
+		width: 100% !important;
+		padding-top: 120px;
+	}
+	.view_camera .add_new_elem
+	{
+		height: 4vh;
+		width: 4vh;
+		font-size: 2.7vh;
+	}
+
+	/* Часть с твоими фото */
+	.central_part_wrap .your_photos
+	{
+		right: inherit;
+		height: 110px;
+		width: 100%;
+		z-index: 2;
+	}
+	.your_photos .photos_list
+	{
+		height: 100%;
+		white-space: nowrap;
+		overflow-y: hidden;
+	    overflow-x: auto;
+	}
+	.your_photos .photos_list .photo
+	{
+		display: inline-block;
+		height: 100%;
+		padding: 0;
+	}
+	.your_photos .photos_list .photo img
+	{
+		height: 100%;
+	}
+
+	/* Модалка */
+	.modal_ant_wrap .modal_ant
+	{
+		width: 80%;
+	}
+	.upload_field{height: 82%;}
+}

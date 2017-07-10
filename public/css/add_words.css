@@ -1,0 +1,99 @@
+html, body, div, input {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body, .wrap, .container {height: 100%; width: 100%;}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #af0301;
+}
+.form {
+    padding: 2%;
+    margin: 0 auto;
+    font-family: roboto, sans-serif;
+    background: #fff;
+}
+.btn {
+    float: right;
+    padding: 1vh 3vh;
+    margin-top: 1vh;
+    font-size: 2.5vh;
+    font-family: roboto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #af0301;
+    color: #fff;
+}
+.form .success_msg,
+.form .error_msg {
+    display: none;
+    padding: 2vh;
+    font-size: 2vh;
+    text-align: center;
+    color: #af0301;
+    transition: 0.3s;
+}
+.form .success_msg {
+    color: limegreen;
+}
+.form input {
+    width: 100%;
+    padding: 0.5vh 1vh;
+    font-size: 2.5vh;
+    outline: none;
+    border: 0.2vh solid #af0301;
+}
+
+.table_wrap table tbody tr:first-child {
+    height: 5vh;
+    font-size: 2.5vh;
+}
+.table_wrap table tbody tr th {
+    width: 25%;
+}
+.table_wrap table tbody tr th:first-child {
+    width: 50%;
+}
+.table_wrap table tbody tr th:nth-child(2) {
+    text-align: center;
+}
+.table_wrap table tbody tr td:first-child {
+    display: table-cell;
+    text-align: center;
+}
+.table_wrap table tbody tr td {
+    /*display: inline-flex;*/
+    position: relative;
+    height: 2vh;
+    font-size: 2.3vh;
+}
+
+label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    cursor: pointer;
+}
+
+input[type=radio] {
+    display: none;
+}
+label:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 2vh;
+    height: 2vh;
+    background-color: #fff;
+    border: 0.2vh solid #af0301;
+}
+input[type=radio]:checked + label:before {
+    background: #af0301;
+    text-align: center;
+}

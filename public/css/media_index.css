@@ -1,0 +1,31 @@
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 690px) {
+    .container .center .center_main .links {
+        padding: 0 8vh;
+    }
+    .center .center_main .links .links_bottom {
+        display: block;
+        height: auto;
+    }
+    .center .center_main .links .links_bottom .vk_share,
+    .center .center_main .links .links_bottom .twitter_share,
+    .center .center_main .links .links_bottom .facebook_share {
+        display: inline-flex;
+        width: 28%;
+    }
+    .center .center_main .links .links_bottom .vk_share {
+        border-left: none;
+    }
+    .center .center_main .links .links_bottom .share {
+        width: 100%;
+        border-bottom: 0.3vh solid white;
+    }
+	.bottom_left_block .log_form_wrap .log_form {
+		width: 50%;
+	}
+}
+@media only screen and (max-width : 420px) {
+	.center .center_main .word_list_wrap .word_list li {
+		white-space: normal;
+	}
+}

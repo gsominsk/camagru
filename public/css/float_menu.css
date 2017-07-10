@@ -1,0 +1,129 @@
+/*
+** =====================================
+**    _-= Выплывающее меню слева=-_
+** =====================================
+*/
+
+.float_menu_wrap
+{
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    padding: 0px 15px;
+    transition: 0.5s;
+    transform: translateX(-250px);
+    background: #00bcd4;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
+                0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.float_menu_wrap .float_menu_header
+{
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+.wrap .container .float_menu_header .menu_icon_in
+{
+	display: none;
+	position: absolute;
+    right: -60px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+	background: url('../../images/icons/close_menu.png') no-repeat;
+    background-size: 100%;
+}
+.wrap .container .float_menu_header .menu_icon_out
+{
+    position: absolute;
+    right: -60px;
+    top: 20px;
+    width: 28px;
+    height: 40px;
+	background: url('../../images/icons/menu_i.png') no-repeat;
+    background-size: 100%;
+}
+.wrap .container .float_menu_header .menu_icon_in:hover,
+.wrap .container .float_menu_header .menu_icon_out:hover
+{
+    cursor: pointer;
+}
+.float_menu_wrap .float_menu_header .logo
+{
+    float: right;
+    height: 100%;
+    line-height: 60px;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.float_menu_wrap .float_menu_header .logo span
+{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+.float_menu_wrap .float_menu_header .logo span:hover{cursor: context-menu;}
+.left_menu_list .menu_list
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: sans-serif;
+}
+.left_menu_list .menu_list li
+{
+    position: relative;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding: 5px;
+    border-bottom: 1px solid white;
+    border-radius: 2px;
+}
+.left_menu_list .menu_list li a
+{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.left_menu_list .menu_list li:hover a{color: #00bcd4;}
+.left_menu_list .menu_list li a div
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0px;
+}
+.left_menu_list .menu_list li:hover
+{
+    background: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.float_menu_wrap .profile_li
+{
+    position: relative;
+    height: 40px;
+    margin: 0px 0px 10px 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+.float_menu_wrap .profile_li:hover
+{
+    cursor: default;
+}
+.float_menu_wrap .profile_li img
+{
+    position: absolute;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
