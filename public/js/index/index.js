@@ -345,6 +345,8 @@ window.onload = function() {
     var canvasAreaWrap    = document.getElementsByClassName('canvas_area_wrap')[0];
     var canvasOnPhoto     = document.getElementsByClassName('canvas_on_photo');
     var uploadPhoto       = document.getElementsByClassName('upload_file')[0];
+    var imgWidth          = 640;
+    var imgHeight         = 480;
     var createPhotoFlag   = 0;
     var mainDataStream    = 0;
 
@@ -389,12 +391,25 @@ window.onload = function() {
         	}
         	if (file) {
         		reader.readAsDataURL(file); //reads the data as a URL
-				mainDataStream = 1;
+                mainDataStream = 1;
         	} else {
         		preview.src = "";
         	}
         	document.getElementsByClassName('upload_file')[0].style.display = "none";
         	showVideoStream();
+            setTimeout(function () {
+                console.log(preview);
+                imgWidth = getComputedStyle(preview).width;
+                imgHeight = getComputedStyle(preview).height;
+                preview.style.maxWidth = '100%';
+                preview.style.maxHeight = '100%';
+                resizeCanvasArea();
+                console.log(imgWidth, imgHeight);
+                canvas.setAttribute("width", imgWidth + "px");
+                canvas.setAttribute("height", imgHeight + "px");
+                // canvas.width = toString(10 + 'px');
+                // canvas.height = 10;
+            }, 1000);
     }
 
     function showVideoStream () {
@@ -412,47 +427,25 @@ window.onload = function() {
         cameraWrap.style.backgroundColor = "black";
     }
 
-    // function videoError() {
-    //     uploadPhoto.style.display   = "block";
-    //     uploadPhoto.onchange = showVideoStream;
-    // }
-
 /*
 ** ===============================
 **	>>>>>	Создание фото
 ** ===============================
 */
 
-    var TO_RADIANS = Math.PI/180;
-
-    function rotateAndPaintImage (context, image, angleInRad , positionX, positionY, width, height, axisX, axisY) {
-        context.translate(positionX, positionY);
-        context.rotate( angleInRad );
-        context.drawImage( image, 0, 0, width, height);
-        context.rotate( -angleInRad );
-        context.translate(-positionX, -positionY);
-    }
-
     function createPhoto () {
         var context = canvas.getContext('2d');
 		var relativeAreaSize = findRelativeAreaSize();
 
+
         context.drawImage(videoStream[mainDataStream], 0, 0);
+
         for (var i = 0; i < canvasOnPhoto.length; i++) {
-            let j = getSize(canvasOnPhoto[i]);
+			let j = getSize(canvasOnPhoto[i]);
             let r = getCoords(canvasOnPhoto[i]);
-            findRelativeCoords(r, relativeAreaSize.height, relativeAreaSize.width);
+			findRelativeCoords(r, relativeAreaSize.height, relativeAreaSize.width);
             findRelativeSize(j, relativeAreaSize.height, relativeAreaSize.width);
-        //     //Поворот изображения, не работает
-        //     if (canvasOnPhoto[i].style.transform != "") {
-        //         // context.rotate(5);
-        //         // console.log(canvasOnPhoto[i].style.transform.match(/\d+/)[0]);
-        //         let angle = canvasOnPhoto[i].style.transform.match(/\d+/)[0];
-        //
-        //         rotateAndPaintImage (context, canvasOnPhoto[i], angle * TO_RADIANS, r.left, r.top, j.width, j.height, 640 / 2, 480 / 2);
-        //         // drawRotatedImage(canvasOnPhoto[i], r.left, r.top, j.width, j.height, angle, context);
-        //     } else
-                context.drawImage(canvasOnPhoto[i], r.left, r.top, j.width, j.height);
+			context.drawImage(canvasOnPhoto[i], r.left, r.top, j.width, j.height);
         }
         new_image = convertCanvasToImage(canvas);
         ajaxAddPhoto("../../php/add_photo.php", new_image.src, function (data) {
@@ -466,18 +459,24 @@ window.onload = function() {
     }
 
 	function findRelativeCoords (elemCoords, relativeHeight, relativeWidth) {
-		let elem = document.getElementsByClassName('canvas')[0];
-		elemCoords.left = (elemCoords.left / relativeWidth) * (elem.style.width / 100);
-		elemCoords.top = (elemCoords.top / relativeHeight) * (elem.style.height / 100);
+		let elem = document.getElementsByClassName('canvas_area')[0];
+		var width = 640;
+        var height = 480;
+		elemCoords.left = (elemCoords.left / relativeWidth) * (parseInt(imgWidth) / 100);
+		elemCoords.top = (elemCoords.top / relativeHeight) * (parseInt(imgHeight) / 100);
 	}
 
 	function findRelativeSize (elemSize, relativeHeight, relativeWidth) {
-        elemSize.width = (elemSize.width / relativeWidth) * (elem.style.width / 100);
-		elemSize.height = (elemSize.height / relativeWidth) * (elem.style.width / 100);
+		let elem = document.getElementsByClassName('canvas_area')[0];
+        var width = 640;
+        var height = 480;
+		elemSize.width = (elemSize.width / relativeWidth) * (parseInt(imgWidth) / 100);
+		elemSize.height = (elemSize.height / relativeWidth) * (parseInt(imgWidth) / 100);
 	}
 
 	function findRelativeAreaSize () {
 		var areaSize = getSize(canvasArea);
+        console.log(11)
 
 		areaSize.width = areaSize.width / 100;
 		areaSize.height = areaSize.height / 100;

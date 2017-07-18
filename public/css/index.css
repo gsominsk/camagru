@@ -252,9 +252,9 @@
     width: initial;
 }
 .view_camera .camera .uploaded_img {
-	position: absolute;
+	/*position: absolute;
 	left: 0;
-	top: 0;
+	top: 0;*/
 	max-width: none;
 	max-height: none;
 }
